@@ -121,33 +121,21 @@ actions:
     - "librechat.ai"
     - "google.com"
 
-# Example MCP Servers Object Structure
-# mcpServers:
-#   everything:
-#     # type: sse # type can optionally be omitted
-#     url: http://localhost:3001/sse
-#     timeout: 60000  # 1 minute timeout for this server, this is the default timeout for MCP servers.
-#   puppeteer:
-#     type: stdio
-#     command: npx
-#     args:
-#       - -y
-#       - "@modelcontextprotocol/server-puppeteer"
-#     timeout: 300000  # 5 minutes timeout for this server
-#   filesystem:
-#     # type: stdio
-#     command: npx
-#     args:
-#       - -y
-#       - "@modelcontextprotocol/server-filesystem"
-#       - /home/user/LibreChat/
-#     iconPath: /home/user/LibreChat/client/public/assets/logo.svg
-#   mcp-obsidian:
-#     command: npx
-#     args:
-#       - -y
-#       - "mcp-obsidian"
-#       - /path/to/obsidian/vault
+Example MCP Servers Object Structure
+mcpServers:
+  supabase:
+    type: stdio
+    command: npx
+    args:
+      - -y
+      - "@supabase/mcp-server-supabase@latest"
+      - --access-token
+      - sbp_0dc7680c276659140210de50eebc68308bcf0805
+    timeout: 300000
+  playwright:
+    type: sse
+    url: https://0d4d-2409-40f4-2053-81be-880e-1d6-2f73-8bbd.ngrok-free.app
+    timeout: 60000
 
 # Definition of custom endpoints
 endpoints:
